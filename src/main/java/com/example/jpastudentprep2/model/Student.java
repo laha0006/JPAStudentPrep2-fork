@@ -18,7 +18,7 @@ public class Student {
     private LocalTime bornTime;
 
     public Student(){}
-    
+
     public Student(String name, LocalDate bornDate, LocalTime bornTime) {
         this.name = name;
         this.bornDate = bornDate;
