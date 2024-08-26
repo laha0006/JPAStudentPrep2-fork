@@ -3,6 +3,7 @@ package com.example.jpastudentprep2.controller;
 import com.example.jpastudentprep2.model.Student;
 import com.example.jpastudentprep2.repositories.StudentRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
@@ -32,6 +33,11 @@ public class StudentRestController {
         studentRepository.save(student);
 
         return studentRepository.findAll();
+    }
+
+    @GetMapping("/students/{name}")
+    public List<Student> getallstudentsbyname(@PathVariable String name) {
+        return studentRepository.findByName(name);
 
     }
 }

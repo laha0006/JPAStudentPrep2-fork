@@ -1,2 +1,6 @@
 ### test findall
 GET http://localhost:8080/students
+
+###
+GET http://localhost:8080/students/Sophia
+Accept: application/json
