@@ -1,0 +1,24 @@
+#start with docker-compose up -d
+#stop with docker-compose down
+
+services:
+  mysql:
+    image: mysql:8.0   # MySQL image version
+    container_name: jpa_mysql_container  # Optional
+    environment:
+      MYSQL_ROOT_PASSWORD: dat23c
+      MYSQL_DATABASE: student
+      MYSQL_USER: jens
+      MYSQL_PASSWORD: x
+    ports:
+      - "3307:3306"  # Map port 3307 on the host computer to port 3306 in the container
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist MySQL data using a named volume
+    networks:
+      - my_network  # Define the network
+
+volumes:
+  mysql_data:   # Declare the named volume
+
+networks:
+  my_network:   # Declare the network
