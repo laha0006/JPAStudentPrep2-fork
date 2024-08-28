@@ -6,7 +6,7 @@ services:
     image: mysql:8.0   # MySQL image version
     container_name: jpa_mysql_container  # Optional
     environment:
-      MYSQL_ROOT_PASSWORD: dat23c
+      MYSQL_ROOT_PASSWORD: Dat23C
       MYSQL_DATABASE: student
       MYSQL_USER: jens
       MYSQL_PASSWORD: x
