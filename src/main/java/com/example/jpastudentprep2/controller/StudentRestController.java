@@ -25,8 +25,8 @@ public class StudentRestController {
         return studentRepository.findAll();
     }
 
-    @GetMapping("/addstudent")
-    public List<Student> addstudent() {
+    @GetMapping("/addStudent")
+    public List<Student> addStudent() {
         Student student = new Student();
         student.setBornDate(LocalDate.now());
         student.setBornTime(LocalTime.now());
@@ -37,7 +37,7 @@ public class StudentRestController {
     }
 
     @GetMapping("/students/{name}")
-    public List<Student> getallstudentsbyname(@PathVariable String name) {
+    public List<Student> getAllStudentsByName(@PathVariable String name) {
         return studentRepository.findByName(name);
 
     }
@@ -78,7 +78,6 @@ public class StudentRestController {
     public ResponseEntity<Student> getStudentById(@PathVariable int id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (studentOptional.isPresent()) {
-
             return ResponseEntity.ok(studentOptional.get());
         }
         else {
