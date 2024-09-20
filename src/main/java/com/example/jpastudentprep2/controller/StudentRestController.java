@@ -11,6 +11,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 public class StudentRestController {
 
@@ -62,15 +63,15 @@ public class StudentRestController {
     }
 
     @DeleteMapping("/student/{id}")
-    public ResponseEntity<String> deleteStudent(@PathVariable int id) {
+    public ResponseEntity<Student> deleteStudent(@PathVariable int id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (studentOptional.isPresent()) {
             studentRepository.deleteById(id);
-            return ResponseEntity.ok("Student deleted successfully");
+            return ResponseEntity.ok(studentOptional.get());
         }
         else {
             //return ResponseEntity.notFound().build();
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
